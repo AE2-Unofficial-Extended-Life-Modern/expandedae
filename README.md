@@ -1,3 +1,5 @@
+[<img src="http://cf.way2muchnoise.eu/1213351.svg" width="200"/>](https://www.curseforge.com/minecraft/mc-mods/expanded-ae)
+
 Expanded AE currently only adds a few new features.  
 This mod is community-driven, so suggest any ideas you might have and they might get added.
 

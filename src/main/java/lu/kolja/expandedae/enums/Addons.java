@@ -10,7 +10,7 @@ public enum Addons {
     EXT("expatternprovider"),
     MEGA("megacells"),
     APPFLUX("appflux"),
-    ADV("advancedae"),
+    ADV("advanced_ae"),
     APPMEK("appmek"),
     ARSENG("arseng"),
     APPBOT("appbot"),
