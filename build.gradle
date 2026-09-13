@@ -137,7 +137,7 @@ dependencies {
     //implementation "curse.maven:applied-energistics-2-223794:6488853"
     accessCompileOnly("org.appliedenergistics:appliedenergistics2:19.2.10")
     implementation "org.appliedenergistics:appliedenergistics2:19.2.10"
-    implementation "curse.maven:ex-pattern-provider-892005:6505209"
+    implementation "curse.maven:ex-pattern-provider-892005:8811572"
     implementation "curse.maven:glodium-957920:5821676"
     implementation "curse.maven:guideme-1173950:6488254"
     implementation "curse.maven:advancedae-1084104:6225993"
