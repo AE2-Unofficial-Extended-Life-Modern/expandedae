@@ -8,9 +8,10 @@ import lu.kolja.expandedae.definition.ExpItems;
 
 public class ExtendedAE {
     public ExtendedAE() {
+        /*
         ItemMEPackingTape.registerPackableDevice(ExpBlocks.EXP_PATTERN_PROVIDER.id());
         ItemMEPackingTape.registerPackableDevice(ExpItems.EXP_PATTERN_PROVIDER_PART.id());
-
+        */
         Upgrades.add(ExpItems.AUTO_COMPLETE_CARD, EAESingletons.EX_PATTERN_PROVIDER, 1, "group.ex_pattern_provider.name");
         Upgrades.add(ExpItems.AUTO_COMPLETE_CARD, EAESingletons.EX_PATTERN_PROVIDER_PART, 1, "group.ex_pattern_provider.name");
         /*
