@@ -159,7 +159,7 @@ dependencies {
     // AE Addons
     modImplementation "curse.maven:applied-energistics-2-wireless-terminals-459929:5217955"
     modImplementation "curse.maven:mega-cells-622112:6175008"
-    modImplementation "curse.maven:ex-pattern-provider-892005:6518515"
+    modImplementation "curse.maven:ex-pattern-provider-892005:8843577"
     modImplementation "curse.maven:applied-flux-965012:6755986"
     modImplementation "curse.maven:advancedae-1084104:6205290"
     // And their dependencies
