@@ -20,13 +20,17 @@ public class MixinPlugin implements IMixinConfigPlugin {
     public static final Object2ObjectMap<String, String> mixinMap = new Object2ObjectOpenHashMap<>(
         new String[]{
                 "lu.kolja.expandedae.mixin.patternprovider.MixinPatternProviderLogic",
+                "lu.kolja.expandedae.mixin.patternprovider.MixinPatternProviderLogicHost",
                 "lu.kolja.expandedae.mixin.patternprovider.MixinPatternProviderMenu",
-                "lu.kolja.expandedae.mixin.patternprovider.MixinPatternProviderScreen"
+                "lu.kolja.expandedae.mixin.patternprovider.MixinPatternProviderScreen",
+                "lu.kolja.expandedae.mixin.cpu.MixinCraftingCPUCluster"
         },
         new String[]{
                 "appflux",
                 "appflux",
-                "appflux"
+                "appflux",
+                "appflux",
+                "extendedae_plus"
         }
     );
 

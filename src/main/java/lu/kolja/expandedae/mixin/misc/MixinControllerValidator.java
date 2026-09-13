@@ -3,13 +3,15 @@ package lu.kolja.expandedae.mixin.misc;
 import appeng.blockentity.networking.ControllerBlockEntity;
 import appeng.me.pathfinding.ControllerValidator;
 import java.util.Collection;
+
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import lu.kolja.expandedae.ExpConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = ControllerValidator.class, remap = false)
 public abstract class MixinControllerValidator {
@@ -27,14 +29,14 @@ public abstract class MixinControllerValidator {
         return ExpConfig.maxControllerSize;
     }
 
-    @Redirect(
+    @WrapOperation(
             method = "calculateState",
             at = @At(
                     value = "INVOKE",
                     target = "Lappeng/me/pathfinding/ControllerValidator;hasControllerCross(Ljava/util/Collection;)Z"
             )
     )
-    private static boolean ignoreControllerRules(Collection<ControllerBlockEntity> controller) {
-        return !ExpConfig.ignoreControllerRules && hasControllerCross(controller);
+    private static boolean ignoreControllerRules(Collection<ControllerBlockEntity> controller, Operation<Boolean> original) {
+        return !ExpConfig.ignoreControllerRules && original.call(controller);
     }
 }

@@ -3,9 +3,6 @@ buildscript {
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         mavenCentral()
     }
-    dependencies {
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-    }
 }
 
 plugins {
@@ -100,7 +97,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     mavenLocal()
     maven {
-        url "https://cursemaven.com"
+        url = "https://cursemaven.com"
         content {
             includeGroup "curse.maven"
         }
@@ -117,15 +114,15 @@ repositories {
         }
     }
     maven { // Registrate
-        url "https://maven.tterrag.com/"
+        url = "https://maven.tterrag.com/"
     }
     maven {
         name = "Illusive Soulworks maven"
         url = "https://maven.theillusivec4.top/"
     }
     maven {
-        name "firstdarkdev"
-        url "https://maven.firstdarkdev.xyz/snapshots"
+        name = "firstdarkdev"
+        url = "https://maven.firstdarkdev.xyz/snapshots"
     }
     maven {
         name = "Jared's maven"
