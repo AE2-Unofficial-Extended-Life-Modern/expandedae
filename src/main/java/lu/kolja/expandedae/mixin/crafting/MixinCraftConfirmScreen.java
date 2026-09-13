@@ -10,6 +10,7 @@ import appeng.client.gui.style.ScreenStyle;
 import appeng.client.gui.widgets.AETextField;
 import appeng.client.gui.widgets.SettingToggleButton;
 import appeng.core.localization.GuiText;
+import appeng.items.misc.WrappedGenericStack;
 import appeng.menu.me.crafting.CraftConfirmMenu;
 import appeng.menu.me.crafting.CraftingPlanSummary;
 import appeng.menu.me.crafting.CraftingPlanSummaryEntry;
@@ -159,13 +160,10 @@ public class MixinCraftConfirmScreen extends AEBaseScreen<CraftConfirmMenu> impl
     @Unique
     private void eae$addMissing() {
         var plan = menu.getPlan();
-        if (plan == null || RecipeManager.INSTANCE == null) return;
-        plan.getEntries().stream().filter(e -> e.getMissingAmount() > 0).forEach(
-                c -> RecipeManager.INSTANCE.addFavorites(new GenericStack(c.getWhat(), c.getWhat().getAmountPerOperation()))
-        );
-        RecipeManager.INSTANCE.addFavorites(
-                plan.getEntries()
-                        .stream()
+        var recipeManager = RecipeManager.INSTANCE;
+        if (plan == null || recipeManager == null) return;
+        recipeManager.addFavorites(
+                plan.getEntries().stream()
                         .filter(e -> e.getMissingAmount() > 0)
                         .map(e -> new GenericStack(e.getWhat(), e.getWhat().getAmountPerOperation()))
                         .toArray(GenericStack[]::new)

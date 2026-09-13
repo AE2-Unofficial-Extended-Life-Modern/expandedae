@@ -3,12 +3,13 @@ package lu.kolja.expandedae.definition;
 import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
 import appeng.core.definitions.AEParts;
+import appeng.core.definitions.ItemDefinition;
 import de.mari_023.ae2wtlib.AE2wtlib;
+
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import static appeng.api.upgrades.Upgrades.add;
-import static lu.kolja.expandedae.definition.ExpItems.AUTO_COMPLETE_CARD;
-import static lu.kolja.expandedae.definition.ExpItems.PATTERN_REFILLER_CARD;
+import static lu.kolja.expandedae.definition.ExpItems.*;
 
 public class ExpUpgrades {
 
@@ -34,9 +35,15 @@ public class ExpUpgrades {
 
             Upgrades.add(STICKY_CARD, AEParts.STORAGE_BUS, 1, "group.storage_bus.name");
             */
-            
+
             add(PATTERN_REFILLER_CARD, AE2wtlib.PATTERN_ENCODING_TERMINAL, 1, "group.pattern_encoding_terminal.name");
             add(PATTERN_REFILLER_CARD, AE2wtlib.UNIVERSAL_TERMINAL, 1, "group.universal_terminal.name");
+
+            var itemCells = getCells().keySet().stream().map(ItemDefinition::asItem).toList();
+            for (var item : itemCells) {
+                add(AEItems.FUZZY_CARD, item, 1);
+                add(AEItems.INVERTER_CARD, item, 1);
+            }
         });
     }
 }
