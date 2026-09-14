@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.Group;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -19,11 +20,25 @@ public abstract class MixinControllerValidator {
         return false;
     }
 
+    // Vanilla AE2
+    @Group(name = "controllerSize", min = 1, max = 1)
     @ModifyConstant(
             method = "visitNode",
-            constant = @Constant(intValue = 7)
+            constant = @Constant(intValue = 7),
+            require = 0
     )
     private int modifyControllerSize(int constant) {
+        return ExpConfig.maxControllerSize;
+    }
+
+    // AE2UELM
+    @Group(name = "controllerSize", min = 1, max = 1)
+    @ModifyConstant(
+            method = "accept",
+            constant = @Constant(intValue = 7),
+            require = 0
+    )
+    private int modifyControllerSizeAlt(int constant) {
         return ExpConfig.maxControllerSize;
     }
 
