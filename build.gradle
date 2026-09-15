@@ -157,13 +157,14 @@ dependencies {
     modImplementation "curse.maven:guideme-1173950:6489464"
 
     // AE Addons
-    modImplementation "curse.maven:applied-energistics-2-wireless-terminals-459929:5217955"
+    modImplementation "curse.maven:applied-energistics-2-wireless-terminals-459929:7251206"
     modImplementation "curse.maven:mega-cells-622112:6175008"
     modImplementation "curse.maven:ex-pattern-provider-892005:8843577"
     modImplementation "curse.maven:applied-flux-965012:6755986"
-    modImplementation "curse.maven:advancedae-1084104:6205290"
+    modImplementation "curse.maven:advancedae-1084104:8564205"
     // And their dependencies
     modImplementation "curse.maven:glodium-957920:5226922"
+    modImplementation "curse.maven:ae2addonlib-1366135:7668681"
     modRuntimeOnly "curse.maven:architectury-api-419699:5137938"
     modRuntimeOnly "curse.maven:curios-309927:6418456"
     modRuntimeOnly "curse.maven:geckolib-388172:6027567"

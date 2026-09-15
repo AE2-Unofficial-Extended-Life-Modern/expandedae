@@ -21,7 +21,7 @@ public abstract class MixinControllerValidator {
     }
 
     // Vanilla AE2
-    @Group(name = "controllerSize", min = 1, max = 1)
+    @Group(name = "controllerSize", min = 3, max = 3)
     @ModifyConstant(
             method = "visitNode",
             constant = @Constant(intValue = 7),
@@ -32,7 +32,7 @@ public abstract class MixinControllerValidator {
     }
 
     // AE2UELM
-    @Group(name = "controllerSize", min = 1, max = 1)
+    @Group(name = "controllerSize", min = 3, max = 3)
     @ModifyConstant(
             method = "accept",
             constant = @Constant(intValue = 7),
