@@ -10,7 +10,6 @@ import appeng.client.gui.style.ScreenStyle;
 import appeng.client.gui.widgets.AETextField;
 import appeng.client.gui.widgets.SettingToggleButton;
 import appeng.core.localization.GuiText;
-import appeng.items.misc.WrappedGenericStack;
 import appeng.menu.me.crafting.CraftConfirmMenu;
 import appeng.menu.me.crafting.CraftingPlanSummary;
 import appeng.menu.me.crafting.CraftingPlanSummaryEntry;
@@ -18,6 +17,7 @@ import lu.kolja.expandedae.api.cpu.ISearchScreen;
 import lu.kolja.expandedae.api.cpu.TableEntrySorters;
 import lu.kolja.expandedae.api.misc.GuardedWidget;
 import lu.kolja.expandedae.api.misc.NumberUtil;
+import lu.kolja.expandedae.api.misc.ScreenStyleHelper;
 import lu.kolja.expandedae.client.gui.widgets.ExpActionButton;
 import lu.kolja.expandedae.client.gui.widgets.ExpActionItems;
 import lu.kolja.expandedae.definition.ExpLang;
@@ -59,6 +59,12 @@ public class MixinCraftConfirmScreen extends AEBaseScreen<CraftConfirmMenu> impl
             at = @At("TAIL")
     )
     private void init(CraftConfirmMenu menu, Inventory playerInventory, Component title, ScreenStyle style, CallbackInfo ci) {
+        ScreenStyleHelper.addWidgetIfAbsent(style, "searchField", widget -> {
+            widget.setLeft(162);
+            widget.setTop(4);
+            widget.setWidth(69);
+            widget.setHeight(12);
+        });
         this.eae$searchField = GuardedWidget
                 .guardedWidget("searchField", ((AccessorScreenStyle) style).getWidgets(), this.widgets::addTextField)
                 .runIfPresent(w -> w.setPlaceholder(GuiText.SearchPlaceholder.text()));

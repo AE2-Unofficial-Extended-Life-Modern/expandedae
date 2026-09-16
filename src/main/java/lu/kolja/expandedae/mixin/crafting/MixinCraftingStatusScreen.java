@@ -6,6 +6,7 @@ import appeng.client.gui.style.ScreenStyle;
 import appeng.menu.me.crafting.CraftingStatusMenu;
 import lu.kolja.expandedae.api.misc.GuardedWidget;
 import lu.kolja.expandedae.api.misc.ICancellable;
+import lu.kolja.expandedae.api.misc.ScreenStyleHelper;
 import lu.kolja.expandedae.definition.ExpLang;
 import lu.kolja.expandedae.mixin.accessor.AccessorScreenStyle;
 import net.minecraft.client.gui.GuiGraphics;
@@ -40,6 +41,12 @@ public class MixinCraftingStatusScreen extends CraftingCPUScreen<CraftingStatusM
             remap = false
     )
     private void init(CraftingStatusMenu menu, Inventory playerInventory, Component title, ScreenStyle style, CallbackInfo ci) {
+        ScreenStyleHelper.addWidgetIfAbsent(style, "cancelAll", widget -> {
+            widget.setLeft(-86);
+            widget.setBottom(17);
+            widget.setWidth(69);
+            widget.setHeight(17);
+        });
         this.expandedae$cancelAll = GuardedWidget.guardedWidget("cancelAll", ((AccessorScreenStyle) style).getWidgets(),
                 id -> this.widgets.addButton(
                 id,

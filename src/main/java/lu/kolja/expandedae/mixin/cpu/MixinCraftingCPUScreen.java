@@ -17,6 +17,7 @@ import com.google.common.collect.ImmutableList;
 import lu.kolja.expandedae.api.cpu.ISearchScreen;
 import lu.kolja.expandedae.api.cpu.TableEntrySorters;
 import lu.kolja.expandedae.api.misc.GuardedWidget;
+import lu.kolja.expandedae.api.misc.ScreenStyleHelper;
 import lu.kolja.expandedae.mixin.accessor.AccessorScreenStyle;
 import lu.kolja.expandedae.network.ExpNetworkHandler;
 import lu.kolja.expandedae.network.implementations.HighlightDataPacket;
@@ -62,6 +63,12 @@ public abstract class MixinCraftingCPUScreen<T extends CraftingCPUMenu> extends 
             at = @At("TAIL")
     )
     private void init(CallbackInfo ci) {
+        ScreenStyleHelper.addWidgetIfAbsent(style, "searchField", widget -> {
+            widget.setLeft(144);
+            widget.setTop(4);
+            widget.setWidth(69);
+            widget.setHeight(12);
+        });
         this.eae$searchField = GuardedWidget
                 .guardedWidget("searchField", ((AccessorScreenStyle) style).getWidgets(), this.widgets::addTextField)
                 .runIfPresent(w -> w.setPlaceholder(GuiText.SearchPlaceholder.text()))
