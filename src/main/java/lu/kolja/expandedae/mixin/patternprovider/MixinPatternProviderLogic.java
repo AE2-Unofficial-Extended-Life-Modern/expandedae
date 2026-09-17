@@ -161,10 +161,12 @@ public abstract class MixinPatternProviderLogic implements IUpgradeableObject, I
 
     @Inject(
             method = "pushPattern",
-            at = @At("HEAD")
+            at = @At("RETURN")
     )
     private void expandedae$onPushPatternSuccess(IPatternDetails patternDetails, KeyCounter[] inputHolder, CallbackInfoReturnable<Boolean> cir) {
-        expandedae$tryAutoCompleteCraft(patternDetails);
+        if (cir.getReturnValue()) {
+            expandedae$tryAutoCompleteCraft(patternDetails);
+        }
     }
 
     @Unique
@@ -176,7 +178,8 @@ public abstract class MixinPatternProviderLogic implements IUpgradeableObject, I
             if (cpu instanceof CraftingCPUCluster cluster) {
                 var task = ((AccessorExecutingCraftingJob) ((AccessorCraftingCpuLogic) cluster.craftingLogic).getJob()).getTasks().get(details);
                 if (task != null && task.getValue() <= 1) {
-                    cluster.cancelJob();
+                    ((AccessorCraftingCpuLogic) cluster.craftingLogic).eae$finishJob(true);
+                    cluster.updateOutput(null);
                     return;
                 }
                 continue;

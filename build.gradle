@@ -135,12 +135,12 @@ repositories {
 
 dependencies {
     //implementation "curse.maven:applied-energistics-2-223794:6488853"
-    accessCompileOnly("org.appliedenergistics:appliedenergistics2:19.2.10")
-    implementation "org.appliedenergistics:appliedenergistics2:19.2.10"
+    accessCompileOnly("org.appliedenergistics:appliedenergistics2:19.2.16")
+    implementation "org.appliedenergistics:appliedenergistics2:19.2.16"
     implementation "curse.maven:ex-pattern-provider-892005:8811572"
     implementation "curse.maven:glodium-957920:5821676"
     implementation "curse.maven:guideme-1173950:6488254"
-    implementation "curse.maven:advancedae-1084104:6225993"
+    implementation "curse.maven:advancedae-1084104:8564177"
 
     jarJar(implementation "de.mari_023:ae2wtlib_api:$ae2wtlib_version")
     runtimeOnly "de.mari_023:ae2wtlib:$ae2wtlib_version"
@@ -153,7 +153,7 @@ dependencies {
     implementation "curse.maven:curios-309927:6401872"
 
     implementation "curse.maven:applied-flux-965012:6649565"
-    runtimeOnly "curse.maven:geckolib-388172:6304958"
+    runtimeOnly "curse.maven:geckolib-388172:8893490"
     implementation "curse.maven:mega-cells-622112:6517566"
     runtimeOnly "curse.maven:cloth-config-348521:5729127"
     //Cell implementations
