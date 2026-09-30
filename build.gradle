@@ -131,11 +131,14 @@ repositories {
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
     }
+    maven {
+        url = "https://repo.expandium.net/releases"
+    }
 }
 
 dependencies {
     //implementation "curse.maven:applied-energistics-2-223794:6488853"
-    accessCompileOnly("org.appliedenergistics:appliedenergistics2:19.2.16")
+    accessCompileOnly("org.appliedenergistics:appliedenergistics2:19.2.18")
     implementation "org.appliedenergistics:appliedenergistics2:19.2.16"
     implementation "curse.maven:ex-pattern-provider-892005:8811572"
     implementation "curse.maven:glodium-957920:5821676"
@@ -179,6 +182,9 @@ dependencies {
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
     implementation "curse.maven:ae2-jei-integration-1074338:5748513"
+
+    compileOnly(annotationProcessor("lu.kolja:mixinloadconditions-common:0.2.0"))
+    implementation(jarJar("lu.kolja:mixinloadconditions-neoforge:0.2.0"))
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

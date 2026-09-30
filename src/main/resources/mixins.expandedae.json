@@ -2,7 +2,6 @@
   "required": true,
   "package": "lu.kolja.expandedae.mixin",
   "compatibilityLevel": "JAVA_21",
-  "plugin": "lu.kolja.expandedae.mixin.MixinPlugin",
   "mixins": [
     "accessor.AccessorBuiltInModelHooks",
     "accessor.AccessorCraftingCpuLogic",

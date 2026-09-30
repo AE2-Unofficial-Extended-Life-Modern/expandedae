@@ -11,15 +11,18 @@ import lu.kolja.expandedae.definition.ExpSettings;
 import lu.kolja.expandedae.enums.BlockingMode;
 import lu.kolja.expandedae.helper.pattern.IPatternProvider;
 import lu.kolja.expandedae.helper.pattern.ISmartBlocking;
-import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.player.Inventory;
+import lu.kolja.mixinloadconditions.LoadCondition;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Inventory;
+
+@LoadCondition(loadIf = "appflux")
 @Mixin(value = PatternProviderScreen.class, remap = false)
 public abstract class AppFluxMixinPatternProviderScreen<C extends PatternProviderMenu> extends AEBaseScreen<C> implements ISmartBlocking {
 

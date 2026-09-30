@@ -14,8 +14,7 @@ import lu.kolja.expandedae.enums.BlockingMode;
 import lu.kolja.expandedae.helper.misc.KeybindUtil;
 import lu.kolja.expandedae.helper.pattern.IPatternProvider;
 import lu.kolja.expandedae.helper.pattern.IUpgradableMenu;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.MenuType;
+import lu.kolja.mixinloadconditions.LoadCondition;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,8 +23,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.MenuType;
+
 import java.util.Arrays;
 
+@LoadCondition(loadIf = "appflux")
 @Mixin(value = PatternProviderMenu.class, remap = false)
 public abstract class AppFluxMixinPatternProviderMenu extends AEBaseMenu implements IUpgradableMenu, IPatternProvider {
     @Unique

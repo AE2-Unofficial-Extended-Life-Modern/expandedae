@@ -3,6 +3,7 @@ package lu.kolja.expandedae.mixin.compat.jei;
 import lu.kolja.expandedae.definition.ExpMenus;
 import lu.kolja.expandedae.terminal.ExpEncodingTerminalMenu;
 import lu.kolja.expandedae.terminal.wtlib.ExpWETMenu;
+import lu.kolja.mixinloadconditions.LoadCondition;
 import mezz.jei.api.registration.IRecipeTransferRegistration;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import tamaized.ae2jeiintegration.integration.modules.jei.JEIPlugin;
 import tamaized.ae2jeiintegration.integration.modules.jei.transfer.EncodePatternTransferHandler;
 
+@LoadCondition(loadIf = "ae2jeiintegration")
 @Mixin(value = JEIPlugin.class, remap = false)
 public class MixinJEIPlugin {
 
