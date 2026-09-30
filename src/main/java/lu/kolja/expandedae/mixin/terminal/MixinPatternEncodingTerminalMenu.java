@@ -56,6 +56,9 @@ public abstract class MixinPatternEncodingTerminalMenu extends MEStorageMenu imp
     @Final
     private ConfigInventory encodedOutputsInv;
 
+    @Shadow
+    protected abstract boolean isPattern(ItemStack output);
+
     protected MixinPatternEncodingTerminalMenu(MenuType<?> menuType, int id, Inventory ip, ITerminalHost host) {
         super(menuType, id, ip, host);
     }
@@ -112,7 +115,8 @@ public abstract class MixinPatternEncodingTerminalMenu extends MEStorageMenu imp
             if (!data) return;
             var player = this.getPlayer();
             // Need to do this check first because #addItem ignores that there are no free slots if the player is in creative mode
-            if (player.getInventory().getFreeSlot() > 0) {
+            // -1 is returned when the player has no free slots
+            if (player.getInventory().getFreeSlot() != -1) {
                 player.addItem(encodedPatternSlot.getItem());
                 encodedPatternSlot.set(ItemStack.EMPTY);
                 encodedPatternSlot.setChanged();
@@ -174,5 +178,10 @@ public abstract class MixinPatternEncodingTerminalMenu extends MEStorageMenu imp
             }
         }
         return result;
+    }
+
+    @Override
+    public int eae$getBlankPatternCount() {
+        return this.blankPatternSlot.getItem().getCount();
     }
 }
