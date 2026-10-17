@@ -209,8 +209,9 @@ dependencies {
     implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.4.1"))
     compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.6-beta.1"))
     implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.3.6-beta.1"))
-    compileOnly(annotationProcessor("lu.kolja:mixinloadconditions:0.1.2"))
-    implementation(jarJar("lu.kolja:mixinloadconditions:0.1.2"))
+
+    compileOnly(annotationProcessor("lu.kolja:mixinloadconditions-common:0.2.0"))
+    implementation(jarJar("lu.kolja:mixinloadconditions-forge:0.2.0"))
 }
 
 
